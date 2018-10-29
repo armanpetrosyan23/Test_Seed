@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Test_Seed.Migrations
+namespace Test_Seed.Migrations.Context1
 {
-    public partial class First : Migration
+    public partial class ForTestContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,7 +23,7 @@ namespace Test_Seed.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Book",
+                name: "Books",
                 columns: table => new
                 {
                     BookID = table.Column<int>(nullable: false)
@@ -34,9 +34,9 @@ namespace Test_Seed.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Book", x => x.BookID);
+                    table.PrimaryKey("PK_Books", x => x.BookID);
                     table.ForeignKey(
-                        name: "FK_Book_Authors_AuthorID",
+                        name: "FK_Books_Authors_AuthorID",
                         column: x => x.AuthorID,
                         principalTable: "Authors",
                         principalColumn: "ID",
@@ -44,15 +44,15 @@ namespace Test_Seed.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Book_AuthorID",
-                table: "Book",
+                name: "IX_Books_AuthorID",
+                table: "Books",
                 column: "AuthorID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Book");
+                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "Authors");
