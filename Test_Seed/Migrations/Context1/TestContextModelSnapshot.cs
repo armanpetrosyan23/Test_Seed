@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Test_Seed.Data;
 
-namespace Test_Seed.Migrations
+namespace Test_Seed.Migrations.Context1
 {
     [DbContext(typeof(TestContext))]
-    [Migration("20181026063622_First")]
-    partial class First
+    partial class TestContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,7 +52,7 @@ namespace Test_Seed.Migrations
 
                     b.HasIndex("AuthorID");
 
-                    b.ToTable("Book");
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("Test_Seed.Data.Book", b =>
